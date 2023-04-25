@@ -94,7 +94,7 @@ export default {
       }
     }
     return {
-      actionUrl: `${process.env.BASE_URL_HTTPS}pmm/system/upload/image`,
+      actionUrl: `${process.env.VUE_APP_ENV_PATH}/pmm/system/upload/image`,
       uploadLoading: false,
       imageUrl: '',
       headers: {
@@ -146,7 +146,7 @@ export default {
         playUrl: [
           { required: true, message: '请输入游戏URL' },
           // { pattern: /^(http(s)?:\/\/)?(www\.)?([0-9a-z-]{1,}.)?[0-9a-z-]{2,}.([0-9a-z-]{2,}.)?[a-z]{2,}$/i, message: '请输入正确格式' }
-          { pattern: /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/, message: '请输入正确格式' }
+          { pattern: /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~/])+$/, message: '请输入正确格式' }
         ],
       }
     };

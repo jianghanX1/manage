@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { Message, MessageBox, Loading } from 'element-ui' //导入element-ui组件库
+import { Message, Loading } from 'element-ui' //导入element-ui组件库
 
-console.log(process.env.BASE_URL_HTTPS);
+console.log(process.env.VUE_APP_ENV_PATH);
 // 创建axios的对象
 const instance = axios.create({
-  baseURL: process.env.BASE_URL_HTTPS,  //配置固定域名
+  baseURL: process.env.VUE_APP_ENV_PATH,  //配置固定域名
   timeout: 5000
 })
 // loading框设置局部刷新，且所有请求完成后关闭loading框
@@ -70,9 +70,6 @@ instance.interceptors.response.use(response => {
     // 1.公共错误处理
     // 2.根据响应码具体处理
     switch (error.response.status) {
-      case 400:
-        error.message = '错误请求'
-        break;
       case 400:
         error.message = '错误请求'
         break;
