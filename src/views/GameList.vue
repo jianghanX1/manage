@@ -116,7 +116,7 @@
         width="120"
       >
         <template slot-scope="scope">
-          <div class="current_ranking">
+          <div class="current_ranking" v-if="scope.row.isAvailable">
             <el-button @click="rankingClick(scope,1)" :disabled="scope.row.ranking == 1"><i class="el-icon-top" /></el-button>
             <el-button @click="rankingClick(scope,2)" :disabled="scope.row.ranking == lastRankNo"><i class="el-icon-bottom" /></el-button>
             <el-button class="topping" @click="rankingClick(scope,3)" :disabled="scope.row.ranking == 1"><i class="el-icon-download" /></el-button>

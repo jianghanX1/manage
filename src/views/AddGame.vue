@@ -36,9 +36,9 @@
         <el-form-item label="在玩人数" prop="players">
           <el-input v-model="form.players" placeholder="请输入在玩人数"></el-input>
         </el-form-item>
-        <el-form-item label="游戏排名" prop="ranking">
-          <el-input v-model="form.ranking" placeholder="请输入游戏排名"></el-input>
-        </el-form-item>
+<!--        <el-form-item label="游戏排名" prop="ranking">-->
+<!--          <el-input v-model="form.ranking" placeholder="请输入游戏排名"></el-input>-->
+<!--        </el-form-item>-->
         <el-form-item label="开发商">
           <el-input v-model="form.developer" placeholder="请输入开发商"></el-input>
         </el-form-item>
@@ -81,18 +81,18 @@ import request from '@/utils/request.js'
 export default {
   name: "AddGame",
   data() {
-    var validateRanking = (rule, value, callback) => {
-      let number = /^[1-9][0-9]*$/.test(value)
-      if (value === '') {
-        callback(new Error('请输入游戏排名'))
-      } else if (!number){
-        callback(new Error(`请输入正确游戏排名`))
-      } else if (value < 1 || value > Number(this.$route.query.lastRankNo) + 1){
-        callback(new Error(`请输入正确游戏排名1-${Number(this.$route.query.lastRankNo) + 1}`))
-      } else {
-        callback()
-      }
-    }
+    // var validateRanking = (rule, value, callback) => {
+    //   let number = /^[1-9][0-9]*$/.test(value)
+    //   if (value === '') {
+    //     callback(new Error('请输入游戏排名'))
+    //   } else if (!number){
+    //     callback(new Error(`请输入正确游戏排名`))
+    //   } else if (value < 1 || value > Number(this.$route.query.lastRankNo) + 1){
+    //     callback(new Error(`请输入正确游戏排名1-${Number(this.$route.query.lastRankNo) + 1}`))
+    //   } else {
+    //     callback()
+    //   }
+    // }
     return {
       actionUrl: `${process.env.VUE_APP_ENV_PATH}/pmm/system/upload/image`,
       uploadLoading: false,
@@ -137,9 +137,9 @@ export default {
           { required: true, message: '请输入在玩人数' },
           { pattern: /(^\d$)|(^[1-9])/, message: '请输入正确在玩人数' }
         ],
-        ranking: [
-          { required: true, validator: validateRanking }
-        ],
+        // ranking: [
+        //   { required: true, validator: validateRanking }
+        // ],
         // developer: [
         //   { required: true, message: '请输入活动名称' }
         // ],
@@ -291,7 +291,8 @@ export default {
               gameGrade,
               language: this.form.language,
               score: this.form.score,
-              ranking: this.form.ranking,
+              // ranking: this.form.ranking,
+              ranking: 1,
               downloads: this.form.downloads,
               players: this.form.players,
               developer: this.form.developer,
