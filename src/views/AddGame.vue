@@ -123,7 +123,7 @@ export default {
         ],
         description: [
           { required: true, message: '请输入游戏简介' },
-          { max: 140, message: '长度在140个字符' }
+          { max: 300, message: '长度在300个字符' }
         ],
         score: [
           { required: true, message: '请输入游戏评分' },
